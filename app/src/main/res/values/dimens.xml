@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_arrow">40dp</dimen>
+    <dimen name="size_cell">45dp</dimen>
+    <dimen name="size_field">135dp</dimen>
+    <dimen name="width_menu_button">250dp</dimen>
+    <dimen name="height_menu_button">65dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+</resources>

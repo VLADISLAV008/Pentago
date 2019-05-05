@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back">
+
+    <TextView
+        android:id="@+id/move"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/red"
+        android:text="Ход белых"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/play_again"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/menu_button"
+        android:text="Новая игра"
+        android:textAllCaps="false"
+        android:textSize="30dp"
+        android:visibility="gone"
+        />
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true">
+
+    <Button
+        android:id="@+id/arrow_left_top_clockwise"
+        android:layout_width="@dimen/size_arrow"
+        android:layout_height="@dimen/size_arrow"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="41dp"
+        android:background="@drawable/arrow"
+        android:alpha="0"
+        android:visibility="invisible"
+        android:rotation="90" />
+
+    <Button
+        android:id="@+id/arrow_right_top_counter_clockwise"
+        android:layout_width="@dimen/size_arrow"
+        android:layout_height="@dimen/size_arrow"
+        android:layout_alignRight="@+id/right_top"
+        android:layout_marginTop="41dp"
+        android:alpha="0"
+        android:visibility="invisible"
+        android:background="@drawable/arrow_mirror"
+        android:rotation="90" />
+
+    <Button
+        android:id="@+id/arrow_right_top_clockwise"
+        android:layout_width="@dimen/size_arrow"
+        android:layout_height="@dimen/size_arrow"
+        android:layout_alignTop="@+id/right_top"
+        android:layout_toRightOf="@+id/right_top"
+        android:layout_marginLeft="5dp"
+        android:alpha="0"
+        android:background="@drawable/arrow"
+        android:rotation="180"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/arrow_right_bottom_counter_clockwise"
+        android:layout_width="@dimen/size_arrow"
+        android:layout_height="@dimen/size_arrow"
+        android:layout_toRightOf="@+id/right_bottom"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@+id/right_bottom"
+        android:alpha="0"
+        android:visibility="invisible"
+        android:background="@drawable/arrow_mirror"
+        android:rotation="180" />
+
+    <Button
+        android:id="@+id/arrow_right_bottom_clockwise"
+        android:layout_width="@dimen/size_arrow"
+        android:layout_height="@dimen/size_arrow"
+        android:layout_alignRight="@+id/right_bottom"
+        android:layout_marginTop="365dp"
+        android:alpha="0"
+        android:visibility="invisible"
+        android:background="@drawable/arrow"
+        android:rotation="270" />
+
+    <Button
+        android:id="@+id/arrow_left_bottom_counter_clockwise"
+        android:layout_width="@dimen/size_arrow"
+        android:layout_height="@dimen/size_arrow"
+        android:layout_alignLeft="@+id/left_bottom"
+        android:layout_marginTop="365dp"
+        android:alpha="0"
+        android:visibility="invisible"
+        android:background="@drawable/arrow_mirror"
+        android:rotation="270" />
+
+    <Button
+        android:id="@+id/arrow_left_bottom_clockwise"
+        android:layout_width="@dimen/size_arrow"
+        android:layout_height="@dimen/size_arrow"
+        android:layout_alignBottom="@+id/left_bottom"
+        android:alpha="0"
+        android:visibility="invisible"
+        android:background="@drawable/arrow"
+        android:rotation="0" />
+
+    <Button
+        android:id="@+id/arrow_left_top_counter_clockwise"
+        android:layout_width="@dimen/size_arrow"
+        android:layout_height="@dimen/size_arrow"
+        android:layout_alignTop="@+id/left_top"
+        android:alpha="0"
+        android:visibility="invisible"
+        android:background="@drawable/arrow_mirror"
+        android:rotation="0" />
+
+    <TableLayout
+        android:id="@+id/left_top"
+        android:layout_width="@dimen/size_field"
+        android:layout_height="@dimen/size_field"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="85dp"
+        android:background="@drawable/big_red">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn6"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn7"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn8"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn9"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/left_bottom"
+        android:layout_width="@dimen/size_field"
+        android:layout_height="@dimen/size_field"
+        android:layout_marginLeft="45dp"
+        android:layout_alignTop="@+id/left_top"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/big_red">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn10"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn11"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn12"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn13"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn14"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn15"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn16"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn17"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn18"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/right_top"
+        android:layout_width="@dimen/size_field"
+        android:layout_height="@dimen/size_field"
+        android:layout_alignLeft="@+id/left_top"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="85dp"
+        android:background="@drawable/big_red">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn19"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn20"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn21"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn22"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn23"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn24"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn25"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn26"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn27"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/right_bottom"
+        android:layout_width="@dimen/size_field"
+        android:layout_height="@dimen/size_field"
+        android:layout_alignLeft="@+id/left_bottom"
+        android:layout_marginLeft="140dp"
+        android:layout_alignTop="@+id/right_top"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/big_red">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn28"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn29"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn30"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn31"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn32"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn33"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn34"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn35"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+
+            <Button
+                android:id="@+id/btn36"
+                android:layout_width="@dimen/size_cell"
+                android:layout_height="@dimen/size_cell"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_red_blank" />
+        </TableRow>
+    </TableLayout>
+
+    <ImageView
+    android:id="@+id/imageView"
+    android:layout_width="275dp"
+    android:layout_height="185dp"
+    android:layout_alignLeft="@id/left_top"
+    android:layout_marginTop="130dp"
+    android:visibility="gone"
+    android:alpha="0"
+    android:background="@drawable/win_picture" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/left_bottom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="230dp"
+        android:textColor="@color/white"
+        android:text="Белые выграли!"
+        android:visibility="gone"
+        android:alpha="0"
+        android:textSize="20dp" />
+
+</RelativeLayout>
+
+
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/field_textView"-->
+        <!--android:layout_width="75dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginTop="430dp"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:text="Белые выграли!"-->
+
+        <!--android:textSize="20dp" />-->
+
+</RelativeLayout>

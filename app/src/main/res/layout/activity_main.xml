@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/back">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <!--<Button-->
+            <!--android:layout_width="64dp"-->
+            <!--android:layout_height="64dp"-->
+            <!--android:background="@drawable/setting_icon"></Button>-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ПЕНТАГО"
+            android:textColor="@color/red"
+            android:textSize="60dp" />
+
+        <Button
+            android:id="@+id/two_players"
+            android:layout_width="@dimen/width_menu_button"
+            android:layout_height="@dimen/height_menu_button"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/menu_button"
+            android:text="С другом"
+            android:textAllCaps="false"
+            android:textSize="25dp"></Button>
+
+        <Button
+            android:id="@+id/one_player"
+            android:layout_width="@dimen/width_menu_button"
+            android:layout_height="@dimen/height_menu_button"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/menu_button"
+            android:text="Один игрок"
+            android:textAllCaps="false"
+            android:textSize="25dp"></Button>
+
+        <Button
+            android:id="@+id/network_game"
+            android:layout_width="@dimen/width_menu_button"
+            android:layout_height="@dimen/height_menu_button"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="Сетевая игра"
+            android:background="@drawable/menu_button"
+            android:textAllCaps="false"
+            android:textSize="25dp"></Button>
+
+        <Button
+            android:id="@+id/rules"
+            android:layout_width="@dimen/width_menu_button"
+            android:layout_height="@dimen/height_menu_button"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="Правила игры"
+            android:background="@drawable/menu_button"
+            android:textAllCaps="false"
+            android:textSize="25dp"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/picture_shadel"
+            android:rotation="-10"></Button>
+    </LinearLayout>
+</LinearLayout>
