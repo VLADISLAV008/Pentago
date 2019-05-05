@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+
 public class PlayerVSComputer extends AppCompatActivity implements View.OnClickListener {
     private Field field;
     private Move_Computer bot = new Move_Computer();
