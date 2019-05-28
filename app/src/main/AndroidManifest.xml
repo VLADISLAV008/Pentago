@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.vlad.pentago">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.vlad.pentago">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:icon="@drawable/picture_shadel"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7091507023849858~6034969978"/>
+
         <activity
-            android:name=".MainActivity"
+            android:name="com.vlad.pentago.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,19 +30,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TwoPlayers"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Rules"
-            android:label="@string/title_activity_rules"
+            android:name="com.vlad.pentago.Rules"
+            android:label="@string/rulesOfGame"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".PlayerVSComputer"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Network_game"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Network_game_server_player"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.vlad.pentago.NetworkActivity"
+            android:screenOrientation="portrait"
+            android:noHistory="true"/>
+        <activity
+            android:name="com.vlad.pentago.GameActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+
     </application>
 
 </manifest>

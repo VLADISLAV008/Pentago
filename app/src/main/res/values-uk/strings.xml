@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Пентаго</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="rules_of_game1">
+        " Пентаго - абстрактна настільна гра для двох учасників, яка при всій простоті правил, змусить вас здорового розкинути мізками.\n"
+        " Отже, перед вами ігрове поле, що складається з 4 обертових квадратів. На кожному квадраті 9 лунок для розміщення кульок.\n"
+    </string>
+
+    <string name="rules_of_game2">
+        " У свій хід, гравець повинен зробити два дії: розмістити одну кульку в будь-яку вільну лунку повернути будь-яку чверть "
+        "поля на 90 градусів за годинниковою або проти годинникової стрілки. Після цього, хід передається супернику.\n"
+    </string>
+
+    <string name="rules_of_game3">
+        "\n Мета гри"
+    </string>
+
+    <string name="rules_of_game4">
+        " Гравець, який першим складе вертикальний, горизонтальний або діагональний ряд з 5-ти кульок свого кольору, стає переможцем.\n"
+        "Якщо гравець, що поклав кульку, отримує ряд з п'яти кульок, то повертати чверть поля не треба.\n"
+        "Якщо ніхто не зміг це зробити або поворот квадрата склав дві кольорові лінії одночасно оголошується нічия.\n"
+    </string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nameOfNetworkGame">Введіть ім\'я гри</string>
+    <string name="Pentago">ПЕНТАГО</string>
+    <string name="With_friend">З другом</string>
+    <string name="onePlayer">Один гравець</string>
+    <string name="networkGame">Мережева гра</string>
+    <string name="rulesOfGame">Правила гри</string>
+    <string name="youArePlaying">Ви граєте:</string>
+    <string name="moveWight">Хід білих</string>
+    <string name="moveBlack">Хід чорних</string>
+    <string name="waitingSecondPlayer">Очікування другого гравця</string>
+    <string name="wightWins">"  Білі виграли!"</string>
+    <string name="blackWins">" Чорні виграли!"</string>
+    <string name="draw">"          Нічия"</string>
+    <string name="gameIsOver">Гру закінчено</string>
+    <string name="play">Грати</string>
+    <string name="settings">Налаштування</string>
+    <string name="newGame">Нова гра</string>
+</resources>

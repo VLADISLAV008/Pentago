@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/networkGame"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="50sp" />
+
+    <EditText
+        android:id="@+id/nameOfGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:singleLine="true"
+        android:textColor="@color/red"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:imeOptions="actionGo"
+        android:inputType="textVisiblePassword"
+        android:hint = "@string/nameOfNetworkGame" />
+
+    <Button
+        android:id="@+id/play"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@+id/nameOfGame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="105dp"
+        android:background="@drawable/menu_button"
+        android:text="@string/play"
+        android:textAllCaps="false"
+        android:textSize="30sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="52dp"
+        android:visibility="invisible" />
+
+</RelativeLayout>

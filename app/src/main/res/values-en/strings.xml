@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Pentago</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="rules_of_game1">
+        " Pentago is an abstract board game for two participants, which, for all the simplicity of the rules, will make you have a healthy brain.\n"
+        " So, before you is the playing field, consisting of 4 rotating squares. There are 9 holes on each square to place balls.\n"
+    </string>
+
+    <string name="rules_of_game2">
+        " In his move, the player must take two actions: place one ball in any free well, turn any quarter"
+        "of the field 90 degrees clockwise or counterclockwise. After that, the move is transferred to the opponent.\n"
+    </string>
+
+    <string name="rules_of_game3">
+        "\n Goal of the game"
+    </string>
+
+    <string name="rules_of_game4">
+        " The player who first reaches the vertical, horizontal or diagonal row of 5 balls of his own color becomes the winner.\n"
+        "If the player who laid the ball receives a row of five balls, then it is not necessary to turn a quarter of the field.\n"
+        "If no one was able to do this or a turn of the square made up two colored lines at the same time a draw is announced.\n"
+    </string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nameOfNetworkGame">Enter the name of the game</string>
+    <string name="Pentago">PENTAGO</string>
+    <string name="With_friend">With friend</string>
+    <string name="onePlayer">One player</string>
+    <string name="networkGame">Network game</string>
+    <string name="rulesOfGame">Rules</string>
+    <string name="youArePlaying">You are playing:</string>
+    <string name="moveWight">Move of white</string>
+    <string name="moveBlack">Move of black</string>
+    <string name="waitingSecondPlayer">Waiting for second player</string>
+    <string name="wightWins">"     White won!"</string>
+    <string name="blackWins">"     Black won!"</string>
+    <string name="draw">"          Draw"</string>
+    <string name="gameIsOver">Game over</string>
+    <string name="play">Play</string>
+    <string name="settings">Settings</string>
+    <string name="newGame">New game</string>
+</resources>
