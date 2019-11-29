@@ -33,11 +33,19 @@
     <string name="moveWight">Хід білих</string>
     <string name="moveBlack">Хід чорних</string>
     <string name="waitingSecondPlayer">Очікування другого гравця</string>
-    <string name="wightWins">"  Білі виграли!"</string>
-    <string name="blackWins">" Чорні виграли!"</string>
-    <string name="draw">"          Нічия"</string>
+    <string name="wightWins">"   Білі виграли!"</string>
+    <string name="blackWins">"  Чорні виграли!"</string>
+    <string name="draw">"           Нічия"</string>
     <string name="gameIsOver">Гру закінчено</string>
     <string name="play">Грати</string>
     <string name="settings">Налаштування</string>
     <string name="newGame">Нова гра</string>
+    <string name="privacy_policy">"  Політика конфіденційності  "</string>
+    <string name="mode_middle">"  Середній"</string>
+    <string name="mode_hard">"  Важкий"</string>
+    <string name="mode_easy">"  Легкий"</string>
+    <string name="select_the_difficulty_level">Виберіть рівень складності:</string>
+    <string name="cancel">Відміна</string>
+    <string name="yes">Так</string>
+    <string name="alert_question">Ви впевнені що хочете вийти?</string>
 </resources>

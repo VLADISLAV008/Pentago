@@ -1,11 +1,15 @@
 package com.vlad.pentago;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+//import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.vlad.pentago.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Rules extends AppCompatActivity {
 

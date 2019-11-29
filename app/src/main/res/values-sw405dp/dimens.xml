@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="size_arrow">40dp</dimen>
-    <dimen name="size_cell">45dp</dimen>
-    <dimen name="size_field">135dp</dimen>
+    <dimen name="size_arrow">48dp</dimen>
+    <dimen name="size_cell">48dp</dimen>
+    <dimen name="size_field">144dp</dimen>
     <dimen name="width_menu_button">250dp</dimen>
     <dimen name="height_menu_button">65dp</dimen>
     <dimen name="app_bar_height">110dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
-    <dimen name="picture_win_width">275dp</dimen>
+    <dimen name="picture_win_width">293dp</dimen>
     <dimen name="picture_win_height">185dp</dimen>
-    <dimen name="margin_field">140dp</dimen>
-    <dimen name="margin_field_left">45dp</dimen>
-    <dimen name="margin_field_top">85dp</dimen>
-    <dimen name="margin_bottomArrow_top">365dp</dimen>
+    <dimen name="margin_field">149dp</dimen>
+    <dimen name="margin_field_left">53dp</dimen>
+    <dimen name="margin_field_top">93dp</dimen>
+    <dimen name="margin_bottomArrow_top">391dp</dimen>
     <dimen name="picture_win_margin_top">130dp</dimen>
     <dimen name="text_win_margin_top">230dp</dimen>
     <dimen name="margin_rightArrow_left">5dp</dimen>
@@ -22,6 +22,4 @@
     <dimen name="privacy_policy_button_height">100dp</dimen>
     <dimen name="marginTopBtnPlay">260dp</dimen>
     <dimen name="settingsTextSize">40sp</dimen>
-    <dimen name="onePlayerTextSize">50sp</dimen>
-    <dimen name="modeOnePlayermarginLinerLayout">120dp</dimen>
 </resources>

@@ -3,14 +3,15 @@ package com.vlad.pentago;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Move_Computer {
+class Move_Computer {
 
     private Move move, m;
     private Random random = new Random();
     private ArrayList<Move> list = new ArrayList<>();
     private ArrayList<Move> smallList = new ArrayList<>();
+    static String mode;
 
-    public Move move_computer(int[][] colourOfCell, int player) {
+    Move move_computer(int[][] colourOfCell, int player) {
         list.clear();
         smallList.clear();
         move = null;
@@ -51,73 +52,91 @@ public class Move_Computer {
                         if (!opportunity_opponent_victory_after_the_move(colourOfCell, m, 2, 1)) {
                             list.add(m);
                         }
-                        if (list.size() != 0) move = list.get(random.nextInt(list.size()));
                     }
                 }
         }
+
+        if (mode.equals("easy"))
+            if (list.size() != 0) {
+                int length = list.size();
+                for (int p = length - 1; p >= 0; p--) {
+                    if (empty_four_balls_empty_ofOpponent_after_the_move(colourOfCell, list.get(p), 2, 1))
+                        list.remove(p);
+                }
+            }
+
         if (list.size() != 0) {
-            for (int i = 0; i < list.size(); i++) {
-                if (empty_four_balls_empty_after_the_move(colourOfCell, list.get(i), 2))
-                    return list.get(i);
-            }
-            int length = list.size();
-            for (int p = length - 1; p >= 0; p--) {
-                if (empty_four_balls_empty_ofOpponent_after_the_move(colourOfCell, list.get(p), 2, 1))
-                    list.remove(p);
-            }
-            if (list.size() != 0) {
-                int kol = 0;
-                for (int i = 0; i < 6; i++)
-                    for (int j = 0; j < 6; j++)
-                        if (colourOfCell[i][j] != 0)
-                            kol++;
-                move = list.get(random.nextInt(list.size()));
-                if (kol > 24) {
-                    length = list.size();
-                    for (int p = length - 1; p >= 0; p--)
-                        if (!opportunity_to_block_opponent_win(colourOfCell, list.get(p), 2, 1))
-                            list.remove(p);
-                }
-                if (list.size() == 0) return move;
-            }
-            if (list.size() != 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (player_opportunity_to_win_after_the_move(colourOfCell, list.get(i), 2, 1))
-                        return list.get(i);
-                }
-            }
-
-            for (int i = 0; i < list.size(); i++) {
-                if (!three_balls_line_ofOpponent_after_the_move(colourOfCell, list.get(i), 2, 1) && three_balls_line_in_five_cells(colourOfCell, 1))
-                    return list.get(i);
-            }
-
-            if (list.size() != 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (blocking_creation_of_three_balls(colourOfCell, list.get(i), 1))
-                        return list.get(i);
-                }
-                for (int i = 0; i < list.size(); i++) {
-                    if (blocking_creation_of_three_balls(colourOfCell, list.get(i), 2))
-                        return list.get(i);
-                }
-
-            }
+            move = list.get(random.nextInt(list.size()));
+            if (mode.equals("easy")) return list.get(random.nextInt(list.size()));
         }
 
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).get_KordX() == 1 && list.get(i).get_KordY() == 1)
-                smallList.add(list.get(i));
-            if (list.get(i).get_KordX() == 1 && list.get(i).get_KordY() == 4)
-                smallList.add(list.get(i));
-            if (list.get(i).get_KordX() == 4 && list.get(i).get_KordY() == 1)
-                smallList.add(list.get(i));
-            if (list.get(i).get_KordX() == 4 && list.get(i).get_KordY() == 4)
-                smallList.add(list.get(i));
-        }
+        if (mode.equals("hard") || mode.equals("middle")) {
+            if (list.size() != 0) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (empty_four_balls_empty_after_the_move(colourOfCell, list.get(i), 2))
+                        return list.get(i);
+                }
 
-        if (smallList.size() != 0) return smallList.get(random.nextInt(smallList.size()));
-        if (list.size() != 0) return list.get(random.nextInt(list.size()));
+                int length = list.size();
+                for (int p = length - 1; p >= 0; p--) {
+                    if (empty_four_balls_empty_ofOpponent_after_the_move(colourOfCell, list.get(p), 2, 1))
+                        list.remove(p);
+                }
+
+                if (mode.equals("hard")) {
+                    if (list.size() != 0) {
+                        int kol = 0;
+                        for (int i = 0; i < 6; i++)
+                            for (int j = 0; j < 6; j++)
+                                if (colourOfCell[i][j] != 0)
+                                    kol++;
+                        move = list.get(random.nextInt(list.size()));
+                        if (kol > 24) {
+                            length = list.size();
+                            for (int p = length - 1; p >= 0; p--)
+                                if (!opportunity_to_block_opponent_win(colourOfCell, list.get(p), 2, 1))
+                                    list.remove(p);
+                        }
+                        if (list.size() == 0) return move;
+                    }
+                    if (list.size() != 0) {
+                        for (int i = 0; i < list.size(); i++) {
+                            if (player_opportunity_to_win_after_the_move(colourOfCell, list.get(i), 2, 1))
+                                return list.get(i);
+                        }
+                    }
+                    for (int i = 0; i < list.size(); i++) {
+                        if (!three_balls_line_ofOpponent_after_the_move(colourOfCell, list.get(i), 2, 1) && three_balls_line_in_five_cells(colourOfCell, 1))
+                            return list.get(i);
+                    }
+                }
+
+                if (list.size() != 0) {
+                    for (int i = 0; i < list.size(); i++) {
+                        if (blocking_creation_of_three_balls(colourOfCell, list.get(i), 1))
+                            return list.get(i);
+                    }
+                    for (int i = 0; i < list.size(); i++) {
+                        if (blocking_creation_of_three_balls(colourOfCell, list.get(i), 2))
+                            return list.get(i);
+                    }
+                }
+            }
+
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).get_KordX() == 1 && list.get(i).get_KordY() == 1)
+                    smallList.add(list.get(i));
+                if (list.get(i).get_KordX() == 1 && list.get(i).get_KordY() == 4)
+                    smallList.add(list.get(i));
+                if (list.get(i).get_KordX() == 4 && list.get(i).get_KordY() == 1)
+                    smallList.add(list.get(i));
+                if (list.get(i).get_KordX() == 4 && list.get(i).get_KordY() == 4)
+                    smallList.add(list.get(i));
+            }
+
+            if (smallList.size() != 0) return smallList.get(random.nextInt(smallList.size()));
+            if (list.size() != 0) return list.get(random.nextInt(list.size()));
+        }
 
         for (int i = 0; i < 6; i++)
             for (int j = 0; j < 6; j++) {

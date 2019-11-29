@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_arrow">35dp</dimen>
+    <dimen name="size_cell">40dp</dimen>
+    <dimen name="size_field">120dp</dimen>
+    <dimen name="width_menu_button">250dp</dimen>
+    <dimen name="height_menu_button">65dp</dimen>
+    <dimen name="app_bar_height">110dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="picture_win_width">245dp</dimen>
+    <dimen name="picture_win_height">125dp</dimen>
+    <dimen name="margin_field">125dp</dimen>
+    <dimen name="margin_field_left">35dp</dimen>
+    <dimen name="margin_field_top">80dp</dimen>
+    <dimen name="margin_bottomArrow_top">330dp</dimen>
+    <dimen name="picture_win_margin_top">70dp</dimen>
+    <dimen name="text_win_margin_top">140dp</dimen>
+    <dimen name="margin_rightArrow_left">0dp</dimen>
+    <dimen name="margin_picture_win_arrow">0dp</dimen>
+    <dimen name="privacy_policy_button_width">300dp</dimen>
+    <dimen name="privacy_policy_button_height">100dp</dimen>
+    <dimen name="marginTopBtnPlay">210dp</dimen>
+    <dimen name="settingsTextSize">40sp</dimen>
+    <dimen name="onePlayerTextSize">40sp</dimen>
+    <dimen name="modeOnePlayermarginLinerLayout">120dp</dimen>
+</resources>

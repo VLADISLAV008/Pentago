@@ -35,9 +35,17 @@
     <string name="waitingSecondPlayer">Ожидание второго игрока</string>
     <string name="wightWins">Белые выиграли!</string>
     <string name="blackWins">Черные выиграли!</string>
-    <string name="draw">"          Ничья"</string>
+    <string name="draw">"           Ничья"</string>
     <string name="gameIsOver">Игра окончена</string>
     <string name="play">Играть</string>
     <string name="settings">Настройки</string>
     <string name="newGame">Новая игра</string>
+    <string name="privacy_policy">"  Политика конфиденциальности  "</string>
+    <string name="mode_middle">"  Средний"</string>
+    <string name="mode_hard">"  Тяжелый"</string>
+    <string name="mode_easy">"  Лёгкий"</string>
+    <string name="select_the_difficulty_level">Выберите уровень сложности:</string>
+    <string name="cancel">Отмена</string>
+    <string name="yes">Да</string>
+    <string name="alert_question">Вы уверены, что хотите выйти?</string>
 </resources>

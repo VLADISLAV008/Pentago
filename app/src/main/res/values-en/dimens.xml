@@ -18,10 +18,7 @@
     <dimen name="text_win_margin_top">230dp</dimen>
     <dimen name="margin_rightArrow_left">5dp</dimen>
     <dimen name="margin_picture_win_arrow">10dp</dimen>
-    <dimen name="privacy_policy_button_width">300dp</dimen>
-    <dimen name="privacy_policy_button_height">100dp</dimen>
-    <dimen name="marginTopBtnPlay">260dp</dimen>
+    <dimen name="privacy_policy_button_width">250dp</dimen>
+    <dimen name="privacy_policy_button_height">70dp</dimen>
     <dimen name="settingsTextSize">40sp</dimen>
-    <dimen name="onePlayerTextSize">50sp</dimen>
-    <dimen name="modeOnePlayermarginLinerLayout">120dp</dimen>
 </resources>

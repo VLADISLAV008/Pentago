@@ -1,8 +1,17 @@
 package com.vlad.pentago;
 
 import android.animation.Animator;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+//import android.support.v7.app.AlertDialog;
+//import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.OvershootInterpolator;
@@ -36,6 +45,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private TextView textView, move;
     private ProgressBar progressBar;
     private AdView mAdView;
+    private MediaPlayer mp, ballSoundPlayer;
+
 
     static public int network_player = 0;
     static public String nameOfGame;
@@ -58,6 +69,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+
+        mp = MediaPlayer.create(this, R.raw.click);
+        ballSoundPlayer = MediaPlayer.create(this, R.raw.sound_ball);
 
         textView = findViewById(R.id.textView);
         imageView = findViewById(R.id.imageView);
@@ -201,8 +216,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         for (int i = 0; i < 8; i++)
             arrow[i].setAlpha(0);
 
-        if(mode.equals(network))
-        {
+        if (mode.equals(network)) {
             if (network_player == 2)
                 progressBar.setVisibility(View.VISIBLE);
             else
@@ -327,7 +341,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         imageViewColourOfPlayer.setVisibility(View.INVISIBLE);
         textView.setVisibility(View.VISIBLE);
         imageView.setVisibility(View.VISIBLE);
-        value = arrow[5].getY() - imageView.getY() + 40;
+        value = arrow[5].getY() - imageView.getY() + getResources().getDimension(R.dimen.margin_picture_win_arrow);
         Runnable translation = new Runnable() {
             public void run() {
                 imageView.animate().setInterpolator(new OvershootInterpolator()).setDuration(600).translationYBy(value).setListener(new Animator.AnimatorListener() {
@@ -373,7 +387,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void is_game_over() {
-        if ((field.isWin(1) && field.isWin(2)) || field.getCountOfBall() == 36) {
+        if ((field.isWin(1) && field.isWin(2))) {
             game_is_over = true;
             setArrowVisible(View.INVISIBLE, 400, -100);
             if (!mode.equals(network))
@@ -409,6 +423,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 textView.setText(R.string.blackWins);
                 win_animate();
             }
+            if (!field.isWin(1) && !field.isWin(2) && field.getCountOfBall() == 36) {
+                game_is_over = true;
+                setArrowVisible(View.INVISIBLE, 400, -100);
+                if (!mode.equals(network))
+                    move.setVisibility(View.INVISIBLE);
+                else
+                    move.setText(R.string.gameIsOver);
+                if (!mode.equals(network))
+                    play_again.setVisibility(View.VISIBLE);
+                textView.setText(R.string.draw);
+                win_animate();
+            }
         }
     }
 
@@ -441,41 +467,75 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.play_again && !isAnimate) {
+            buttonSound();
             newGame();
             play_again.setVisibility(View.INVISIBLE);
         } else if (!game_is_over && !wait) {
             switch (v.getId()) {
                 case R.id.arrow_left_top_clockwise:
-                    rotation_field(0, 0, true);
-                    rotation_field_animate(left_top, 0, 0, 400, -50, -50, 90);
+                    if(!arrow_pressed)
+                    {
+                        arrow_pressed = true;
+                        arrowSound();
+                        rotation_field(0, 0, true);
+                        rotation_field_animate(left_top, 0, 0, 400, -50, -50, 90);
+                    }
                     break;
                 case R.id.arrow_right_top_clockwise:
-                    rotation_field(0, 3, true);
-                    rotation_field_animate(right_top, 0, 3, 400, 50, -50, 90);
+                    if(!arrow_pressed) {
+                        arrow_pressed = true;
+                        arrowSound();
+                        rotation_field(0, 3, true);
+                        rotation_field_animate(right_top, 0, 3, 400, 50, -50, 90);
+                    }
                     break;
                 case R.id.arrow_right_bottom_clockwise:
-                    rotation_field(3, 3, true);
-                    rotation_field_animate(right_bottom, 3, 3, 400, 50, 50, 90);
+                    if(!arrow_pressed) {
+                        arrow_pressed = true;
+                        arrowSound();
+                        rotation_field(3, 3, true);
+                        rotation_field_animate(right_bottom, 3, 3, 400, 50, 50, 90);
+                    }
                     break;
                 case R.id.arrow_left_bottom_clockwise:
-                    rotation_field(3, 0, true);
-                    rotation_field_animate(left_bottom, 3, 0, 400, -50, 50, 90);
+                    if(!arrow_pressed) {
+                        arrow_pressed = true;
+                        arrowSound();
+                        rotation_field(3, 0, true);
+                        rotation_field_animate(left_bottom, 3, 0, 400, -50, 50, 90);
+                    }
                     break;
                 case R.id.arrow_left_top_counter_clockwise:
-                    rotation_field(0, 0, false);
-                    rotation_field_animate(left_top, 0, 0, 400, -50, -50, -90);
+                    if(!arrow_pressed) {
+                        arrow_pressed = true;
+                        arrowSound();
+                        rotation_field(0, 0, false);
+                        rotation_field_animate(left_top, 0, 0, 400, -50, -50, -90);
+                    }
                     break;
                 case R.id.arrow_right_top_counter_clockwise:
-                    rotation_field(0, 3, false);
-                    rotation_field_animate(right_top, 0, 3, 400, 50, -50, -90);
+                    if(!arrow_pressed) {
+                        arrow_pressed = true;
+                        arrowSound();
+                        rotation_field(0, 3, false);
+                        rotation_field_animate(right_top, 0, 3, 400, 50, -50, -90);
+                    }
                     break;
                 case R.id.arrow_right_bottom_counter_clockwise:
-                    rotation_field(3, 3, false);
-                    rotation_field_animate(right_bottom, 3, 3, 400, 50, 50, -90);
+                    if(!arrow_pressed) {
+                        arrow_pressed = true;
+                        arrowSound();
+                        rotation_field(3, 3, false);
+                        rotation_field_animate(right_bottom, 3, 3, 400, 50, 50, -90);
+                    }
                     break;
                 case R.id.arrow_left_bottom_counter_clockwise:
-                    rotation_field(3, 0, false);
-                    rotation_field_animate(left_bottom, 3, 0, 400, -50, 50, -90);
+                    if(!arrow_pressed) {
+                        arrow_pressed = true;
+                        arrowSound();
+                        rotation_field(3, 0, false);
+                        rotation_field_animate(left_bottom, 3, 0, 400, -50, 50, -90);
+                    }
                     break;
                 default:
                     if (arrow_pressed && !isAnimate)
@@ -485,6 +545,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                                     if (field.colourOfCell[i][j] == 0) {
                                         if (field.getPlayer() == 1) {
                                             if (!(mode.equals(network) && network_player == 2 && !arrivedMove)) {
+                                                ballSound();
                                                 v.setBackground(getResources().getDrawable(R.drawable.button_white));
                                                 field.colourOfCell[i][j] = 1;
                                                 kordX = i;
@@ -500,6 +561,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                                         }
                                         if (field.getPlayer() == 2) {
                                             if (!(mode.equals(network) && network_player == 1 && !arrivedMove)) {
+                                                ballSound();
                                                 v.setBackground(getResources().getDrawable(R.drawable.button_black));
                                                 field.colourOfCell[i][j] = 2;
                                                 kordX = i;
@@ -520,6 +582,42 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void buttonSound()
+    {
+        if (MainActivity.musicOn) {
+            if (mp.isPlaying()) {
+                mp.stop();
+                mp.release();
+                mp = MediaPlayer.create(this, R.raw.click);
+            }
+            mp.start();
+        }
+    }
+
+    private void arrowSound()
+    {
+        if (MainActivity.musicOn && arrow[0].getVisibility()==View.VISIBLE) {
+            if (mp.isPlaying()) {
+                mp.stop();
+                mp.release();
+                mp = MediaPlayer.create(this, R.raw.click);
+            }
+            mp.start();
+        }
+    }
+
+    private void ballSound()
+    {
+        if (MainActivity.musicOn) {
+            if (ballSoundPlayer.isPlaying()) {
+                ballSoundPlayer.stop();
+                ballSoundPlayer.release();
+                ballSoundPlayer = MediaPlayer.create(this, R.raw.sound_ball);
+            }
+            ballSoundPlayer.start();
+        }
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -531,6 +629,36 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(GameActivity.this);
+        LayoutInflater inflater = GameActivity.this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.alert_confirmation_exit, null);
+        dialogBuilder.setView(dialogView);
+        final TextView yes = (TextView) dialogView.findViewById(R.id.yes);
+        final TextView cancel = (TextView) dialogView.findViewById(R.id.cancel);
+
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonSound();
+                GameActivity.this.finish();
+            }
+        });
+
+        final AlertDialog alertDialog = dialogBuilder.create();
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                buttonSound();
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
     }
 
     @Override

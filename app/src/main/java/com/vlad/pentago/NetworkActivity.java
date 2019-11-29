@@ -1,8 +1,10 @@
 package com.vlad.pentago;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.annotation.MainThread;
+//import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -17,11 +19,14 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class NetworkActivity extends AppCompatActivity {
 
     private EditText editText;
     private Button play;
     private String name;
+    private MediaPlayer mp;
     private NetworkClient networkClient;
     private ProgressBar progressBar;
     private boolean click = false;
@@ -37,9 +42,13 @@ public class NetworkActivity extends AppCompatActivity {
         editText = findViewById(R.id.nameOfGame);
         play = findViewById(R.id.play);
 
+
+        mp = MediaPlayer.create(this, R.raw.click);
+
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttonSound();
                 if (!click) {
                     click = true;
                     name = editText.getText().toString();
@@ -116,5 +125,17 @@ public class NetworkActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void buttonSound()
+    {
+        if (MainActivity.musicOn) {
+            if (mp.isPlaying()) {
+                mp.stop();
+                mp.release();
+                mp = MediaPlayer.create(this, R.raw.click);
+            }
+            mp.start();
+        }
     }
 }

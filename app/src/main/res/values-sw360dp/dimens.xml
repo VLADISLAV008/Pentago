@@ -22,6 +22,4 @@
     <dimen name="privacy_policy_button_height">100dp</dimen>
     <dimen name="marginTopBtnPlay">260dp</dimen>
     <dimen name="settingsTextSize">40sp</dimen>
-    <dimen name="onePlayerTextSize">50sp</dimen>
-    <dimen name="modeOnePlayermarginLinerLayout">120dp</dimen>
 </resources>
